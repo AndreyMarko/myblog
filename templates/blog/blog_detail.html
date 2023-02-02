@@ -1,0 +1,85 @@
+{% load static %}
+<html >
+<head>
+   <title>Мой блог</title>
+   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+   <link rel="stylesheet" type="text/css" href=" {% static '/css/style.css' %} ">
+</head>
+<body>
+ <div class="shell">
+	<div class="border">
+
+		<div class="topnav">
+  <a class="active" href="/">Главнвя</a>
+  <a href="/dostavka">Доставка</a>
+  <a href="/dostavka">Контакты</a>
+  <a href="/dostavka">ТЕЛ. 050-020-36-91</a>
+      </div>
+
+		<div id="main">
+   			<div id="content" class="left">
+
+      			<div class="projects">
+         			   <p style="font-size: 30px; color: blue; text-align: center;"> {{ post.title }} </p>
+         			   <br>
+                  <p align="center">
+                    <img src="{{ post.img.url }}" width="50%"/>
+                  </p>
+         			<div class="item">
+						<div class="text-left">
+               				<p style="font-family: verdana; font-size: 18px; font-align: center">{{ post.description }}</p>
+               				<p>тел.  {{ post.author }}</p>
+            			</div>
+            			<div class="cl"> </div>
+         			</div>
+     			 </div>
+   			</div>
+			<div>
+				<a href="{% url 'add_likes' post.id %}">Нравится {{ post.likes_set.all.count }}</a>
+
+			</div>
+			<div class="form-comment">
+				<p style="font-size: 30px; text-align: center">Оформить заказ</p>
+				<div>
+					<form action="{% url 'add_comments' post.id %}" method="post">
+						{% csrf_token %}
+						<div>
+							<label>Ваш комментарий к заказу:</label>
+							<textarea name="text_comment"></textarea>
+						</div>
+						<div>
+							<label>Ваше имя *</label>
+							<input type="text" name="name">
+						</div>
+						<div>
+							<label>Ваш Email *</label>
+							<input type="email" name="email">
+						</div>
+						<div>
+							<label>Телефон: *</label>
+							<input type="text" name="telefon">
+						</div>
+						<div><input type="submit"></div>
+					</form>
+				</div>
+			</div>
+			<div>
+
+				<div class="view-comment">
+					<h4></h4>
+					<p>
+
+					</p>
+				</div>
+
+			</div>
+
+
+			<div class="cl"> </div>
+		</div>
+
+	</div>
+</div>
+
+</body>
+</html>

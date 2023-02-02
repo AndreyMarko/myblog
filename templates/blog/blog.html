@@ -1,0 +1,57 @@
+{% load static %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>Барахолка:)</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href=" {% static '/css/style.css' %} ">
+</head>
+
+<body>
+
+ <div class="shell">
+	<div class="border">
+
+		<div class="topnav">
+  <a class="active" href="/">Главнвя</a>
+  <a href="/dostavka">Доставка</a>
+  <a href="/dostavka">Контакты</a>
+			<div class="form-search">
+  <a> <form action="" method="get">
+		<input type="text" name="q">
+		<input type="submit" value="ПОИСК">
+	</form></a>
+			</div>
+      </div>
+       </div>
+
+		<div id="main">
+			<div id="content" class="left">
+				
+				<div class="projects">
+					<h3>{% for post in post_list %}</h3>
+					<div class="item">
+						<div class="image left">
+							<a href="{{ post.id }}"><img src="{{ post.img.url }}" height="170px" width="200px"/></a>
+						</div>
+						<div class="text left">
+							<a href="{{ post.id }}" class="title" style="color:#FF0000;">{{ post.title }}</a>
+							<p><a href="{{ post.id }}" class="description"> {{ post.description|truncatechars:300 }} </a></p>
+							<a href="{{ post.id }}"><p class="email">
+								<div id="footer">
+		                           <p class="copy right">Купить</p>
+	                           </div>
+							</p></a>
+						</div>
+						<div class="cl"></div>
+					</div>
+					<br>
+					{% endfor %}
+				</div>
+			</div>
+			
+			<div class="cl"> </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
