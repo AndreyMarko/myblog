@@ -1,67 +1,50 @@
 {% load static %}
 <html >
 <head>
-   <title>ShopTorg</title>
+    <title>ShopTorg - Поставщик Стройматериалов (Березань)</title>
+     <meta description="Поставщик Стройматериалов (Березань)"><meta property="og:type" content="website"/>
    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all" />
+    <meta name="google-site-verification" content="lkpjCYkRU5UyHErb1NYbJafXQVyPsMY-WWwvwYHqfg8" />
+   <title>ShopTorg - Поставщик Стройматериалов (Березань)</title>
+   <meta property="og:url" content="https://shoptorg.pythonanywhere.com"/>
+   <meta property="og:title" content="ShopTorg Строй материалы"/><meta property="og:description" content="Поставщик Стройматериалов (Березань)"/>
+   <meta name="keywords" content="магазин стройматериалов, Березань, область Борисполь, яготин, Киев, дешево, доставка, аэрок, Березань, Борисполь, яготин, ShopTorg: Бетонний блок, Цегла, Керамічний блок, Газобетонний блок, строй материалы, Будівельні суміші, Шпаклівка, Штукатурка, Цемент, Гіпсокартон, Металлопрокат, проф настил, есть доставка, ШЛАКОБЛОК ,БАЗАЛЬТОВАЯ ВАТА, Профіль для гіпсокартону, Покрівля, металочерепиця, Доставка по всей Украине, Украина доставка ">
+   <meta property="og:title" content="Ціна на Газоблоки, Піноблок, Газобетон у Ровенську зону аерок Обухів Березань: продаж, ціна в Києві. блоки стінові від; Soptorg: газобетон і газоблок за оптовою ціною"/>
+            <meta property="og:description" content="Ціна на Газоблоки, Піноблок, Газобетон у Рівній зоні аерок аерок Обухов Березань. Докладна інформація про товар/заслуг і постачальник. Ціна та умови постачання"/>
+
 
 	<link rel="shortcut icon" href="css/images/favicon.ico" />
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
 </head>
-
 <body>
-<div class="shell">
-	<div class="border">
-        <div class="topnav">
+ <div class="topnav">
   <a href="/">Главная</a>
-  <a class="active" href="/">Доставка</a>
-  <a href="#news"></a>
-  <a href="#contact"></a>
-  <a href="#about"></a>
+     <a class="active" href="/dostavka">Доставка</a>
+  <a href="/dostavka" class="center" style="color:red;">тел. 050-999-99-99</a>
 </div>
-        </div>
-		<br>
-<center>
-    <img src="/media/image/dostavka.jpg" width="350px" height="250px">
-    <br><br>
-    <div class="title-dostavka">
-    <p>тел.   </p>
-    <br><br>
-    <p>email: </p>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <div class="description">
+
+        <img src="/media/dostavka.jpg" width="400px" height="300px"/>
+
+          <h1> <p>
+              Для того чтобы купить с доставкой стройматериалы,
+              позвоните нам по номеру телефону указанным на сайте.
+              Можно доставить стеновые материалы кирпич, пеноблок,
+              газоблок, шлакоблок манипулятором или бортовыми машинами под ручную выгрузку.
+              Доставка осуществляется в удобное для клиента время.
+          </p></a></h1>
+
+      <p>{{ post.description }}</p>
+      </div>
     </div>
-    </div>
-</cenetr>
-<br>
-		<a href="{{ post.id }}"><img src=""/></a>
+  </div>
+
 </div>
+
 </body>
 </html>

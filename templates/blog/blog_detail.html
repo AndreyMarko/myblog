@@ -10,10 +10,9 @@
 	<div class="border">
 
 		<div class="topnav">
-  <a class="active" href="/">Главнвя</a>
+  <a class="" href="/">Главнвя</a>
+  <a class="active" href="#">{{ post.title|truncatechars:10 }} </a>
   <a href="/dostavka">Доставка</a>
-  <a href="/dostavka">Контакты</a>
-  <a href="/dostavka">ТЕЛ. 050-020-36-91</a>
       </div>
 
 		<div id="main">
@@ -27,7 +26,7 @@
                   </p>
          			<div class="item">
 						<div class="text-left">
-               				<p style="font-family: verdana; font-size: 18px; font-align: center">{{ post.description }}</p>
+               				<p style="font-family: verdana; font-size: 28px; font-align: center">{{ post.description }}</p>
                				<p>тел.  {{ post.author }}</p>
             			</div>
             			<div class="cl"> </div>
@@ -48,18 +47,18 @@
 							<textarea name="text_comment"></textarea>
 						</div>
 						<div>
-							<label>Ваше имя *</label>
+							<label><p style="font-size:30px;">Ваше имя *</p></label>
 							<input type="text" name="name">
 						</div>
 						<div>
-							<label>Ваш Email *</label>
+							<label><p style="font-size:30px;">Ваш email *</p></label>
 							<input type="email" name="email">
 						</div>
 						<div>
-							<label>Телефон: *</label>
+							<label><p style="font-size:30px;">Ваш телефон *</p></label>
 							<input type="text" name="telefon">
 						</div>
-						<div><input type="submit"></div>
+						<div><button type="submit"><p style="font-size:30px;">Отправиь</p></button></div>
 					</form>
 				</div>
 			</div>

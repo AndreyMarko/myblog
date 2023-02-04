@@ -1,57 +1,38 @@
 {% load static %}
-<html xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
 	<title>Барахолка:)</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href=" {% static '/css/style.css' %} ">
+
 </head>
 
 <body>
-
- <div class="shell">
-	<div class="border">
-
-		<div class="topnav">
-  <a class="active" href="/">Главнвя</a>
+<div class="topnav">
+  <a class="active" href="#home">Главная
   <a href="/dostavka">Доставка</a>
-  <a href="/dostavka">Контакты</a>
-			<div class="form-search">
-  <a> <form action="" method="get">
-		<input type="text" name="q">
-		<input type="submit" value="ПОИСК">
-	</form></a>
-			</div>
-      </div>
-       </div>
 
-		<div id="main">
-			<div id="content" class="left">
-				
-				<div class="projects">
-					<h3>{% for post in post_list %}</h3>
-					<div class="item">
-						<div class="image left">
-							<a href="{{ post.id }}"><img src="{{ post.img.url }}" height="170px" width="200px"/></a>
-						</div>
-						<div class="text left">
-							<a href="{{ post.id }}" class="title" style="color:#FF0000;">{{ post.title }}</a>
-							<p><a href="{{ post.id }}" class="description"> {{ post.description|truncatechars:300 }} </a></p>
-							<a href="{{ post.id }}"><p class="email">
-								<div id="footer">
-		                           <p class="copy right">Купить</p>
-	                           </div>
-							</p></a>
-						</div>
-						<div class="cl"></div>
-					</div>
-					<br>
-					{% endfor %}
-				</div>
-			</div>
-			
-			<div class="cl"> </div>
-		</div>
-	</div>
+  <a href="#contact" class="cente" style="color:red">тел. 050-999-99-99</a>
 </div>
+
+<div class="row">
+  <div class="leftcolumn">
+    {% for post in post_list %}
+    <div class="card">
+      <h1><a href="{{ post.id }}" style="color:green">{{ post.title }}</a></h1>
+      <h5> Dec 7, 2017</h5>
+      <div class="description">
+      <div class="fakeimg">
+        <img src="{{ post.img.url }}"/>
+      </div>
+        <p><h2><a href="{{ post.id }}">{{ post.description|truncatechars:150 }}</a></h2></p>
+      </div>
+      <p><a href="" style="color:red"> цена <h1>{{ post.author }}</h1></a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
 </body>
 </html>

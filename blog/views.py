@@ -13,16 +13,11 @@ class PostView(View):
     '''Вывод записей'''
 
     def get(self, request):
-        request.encoding = 'utf-8'
-        search_request = request.GET.get('q')
-        if search_request is None or search_request == "":
-            posts = Post.objects.all().order_by('-id')
-            return render(request, "blog/blog.html", {'post_list': posts})
-
-        else:
-            posts = Post.objects.filter(description=search_request) | Post.objects.filter(title=search_request)
-            return render(request, "blog/blog.html", {'post_list': posts})
-
+#        request.encoding = 'utf-8'
+#        search_request = request.GET.get('q')
+#       if search_request is None or search_request == "":
+        posts = Post.objects.all().order_by('-id')
+        return render(request, "blog/blog.html", {'post_list': posts})
 
 class Dostavka(View):
     '''Доставка'''
