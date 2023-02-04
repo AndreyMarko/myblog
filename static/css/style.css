@@ -26,15 +26,16 @@ body {
 /* Fake image */
 .fakeimg {
   background-color: #aaa;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   padding: 0px;
+  margin-top: 28px;
 }
 
 .fakeimg img{
 
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   padding: 0px;
 
 }
@@ -64,6 +65,12 @@ body {
   content: "";
   display: table;
   clear: both;
+}
+
+#loginLink {
+  float: right;
+  margin-right: 20px;
+  font-size: 20px;
 }
 
 
@@ -170,3 +177,37 @@ body {
     resize: vertical;
 }
 
+@media only screen and (max-width: 480px) {
+  /* Add styles for smaller screens */
+
+  /* Уменьшите размер шрифта для заголовка */
+  .header {
+    font-size: 30px;
+  }
+
+  /* Уменьшите ширину изображения */
+  .fakeimg img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Уменьшите размер шрифта для текста */
+  .card p {
+    font-size: 18px;
+  }
+
+  /* Измените размер шрифта для навигационной панели */
+  .topnav a {
+    font-size: 20px;
+  }
+
+  /* Уменьшите размер шрифта в форме комментария */
+  .form-comment label,
+  .form-comment input,
+  .form-comment button,
+  .form-comment textarea {
+    font-size: 16px;
+  }
+
+  /* Другие необходимые изменения */
+}

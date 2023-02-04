@@ -8,19 +8,18 @@
 </head>
 
 <body>
-<div class="topnav">
+ <div class="topnav">
   <a class="active" href="#home">Главная
   <a href="/dostavka">Доставка</a>
-
-  <a href="#contact" class="cente" style="color:red">тел. 050-999-99-99</a>
-</div>
+    <a href="#contact"style="color:red">тел. 050-020-36-91</a>
+    <a href="/admin" id="loginLink">login</a>
+ </div>
 
 <div class="row">
   <div class="leftcolumn">
     {% for post in post_list %}
     <div class="card">
       <h1><a href="{{ post.id }}" style="color:green">{{ post.title }}</a></h1>
-      <h5> Dec 7, 2017</h5>
       <div class="description">
       <div class="fakeimg">
         <img src="{{ post.img.url }}"/>
@@ -31,7 +30,6 @@
     </div>
     {% endfor %}
   </div>
-
 </div>
 
 </body>
