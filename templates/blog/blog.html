@@ -26,6 +26,10 @@
       </div>
         <p><h2><a href="{{ post.id }}">{{ post.description|truncatechars:150 }}</a></h2></p>
       </div>
+      <div class="views">
+        {{ post.views }}
+        <img src="/media/aice.png"/>
+      </div>
       <p><a href="" style="color:red"> цена <h1>{{ post.author }}</h1></a></p>
     </div>
     {% endfor %}

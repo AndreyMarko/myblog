@@ -1,3 +1,4 @@
+from venv import logger
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from simple_search import search_filter
@@ -6,18 +7,31 @@ from .models import Post
 from django.http import HttpResponse
 from django.views.decorators.http import require_GET
 from .form import CommentsForm
-from .models import Post, Likes
+from .models import Post, Likes, Visit
 
 
 class PostView(View):
     '''Вывод записей'''
 
     def get(self, request):
-#        request.encoding = 'utf-8'
-#        search_request = request.GET.get('q')
-#       if search_request is None or search_request == "":
-        posts = Post.objects.all().order_by('-id')
-        return render(request, "blog/blog.html", {'post_list': posts})
+    
+     try:
+        ip = get_client_ip(request)
+        '''Получаем обескт с базы, по полученому ip, якшо нема в базе то созд. новый '''
+        visits = Visit.objects.get(ip_addr = ip)
+        visits.count += 1
+        visits.save()
+        visits = Visit.objects.all()
+     except:
+         '''создается новый обект'''
+         visit = Visit()
+         visit.count += 1
+         visit.ip_addr = ip
+         visit.save()
+         visits = Visit.objects.all()
+            
+     posts = Post.objects.all().order_by('-id')
+     return render(request, "blog/blog.html", {'post_list': posts, 'visits': visits})
 
 class Dostavka(View):
     '''Доставка'''
@@ -40,7 +54,10 @@ class PostDetail(View):
     '''отдельная страница для записи'''
 
     def get(self, request, pk):
+        
         post = Post.objects.get(id=pk)
+        post.views +=1
+        post.save()
         return render(request, 'blog/blog_detail.html', {'post': post})
 
 
@@ -57,12 +74,13 @@ class AddComents(View):
 
 
 def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTT_X_FORWARDED_FOR')
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
 
 
 class AddLike(View):
