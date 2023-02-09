@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.views.decorators.http import require_GET
 from .form import CommentsForm
 from .models import Post, Likes, Visit
+from datetime import datetime
 
 
 class PostView(View):
@@ -19,6 +20,7 @@ class PostView(View):
         ip = get_client_ip(request)
         '''Получаем обескт с базы, по полученому ip, якшо нема в базе то созд. новый '''
         visits = Visit.objects.get(ip_addr = ip)
+        visits.data = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         visits.count += 1
         visits.save()
         visits = Visit.objects.all()
@@ -27,6 +29,7 @@ class PostView(View):
          visit = Visit()
          visit.count += 1
          visit.ip_addr = ip
+         visit.data = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
          visit.save()
          visits = Visit.objects.all()
             

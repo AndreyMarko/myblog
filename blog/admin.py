@@ -16,4 +16,4 @@ class CommentsAdmin(admin.ModelAdmin):
 
 @admin.register(Visit)
 class PostAdmin(admin.ModelAdmin):
-    list_dysplay = ('ip_addr', 'count')
+    list_dysplay = ('ip_addr', 'count', 'data')
